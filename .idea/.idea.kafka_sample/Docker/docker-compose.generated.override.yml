@@ -1,0 +1,43 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  servicea:
+    build:
+      context: "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample"
+      dockerfile: "ServiceA/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/ServiceA.dll"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "servicea:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Dina\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample\\\
+      ServiceA:/app:rw"
+    - "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample:/src:rw"
+    working_dir: "/app"
+  serviceb:
+    build:
+      context: "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample"
+      dockerfile: "ServiceB/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/ServiceB.dll"
+    environment:
+      DOTNET_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "serviceb:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Dina\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample\\\
+      ServiceB:/app:rw"
+    - "C:\\Users\\Dina\\Downloads\\Telegram Desktop\\kafka_sample\\kafka_sample:/src:rw"
+    working_dir: "/app"
